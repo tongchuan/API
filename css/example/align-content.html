@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>align-content</title>
+  <style>
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 240px;
+    height: 200px;
+    background-color: #8c8c8c;
+  }
+  .container > div{
+    border: 2px solid #8c8c8c;
+    width: 50px;
+    height: 50px;
+    background-color: #a0c8ff;
+  }
+  .start{
+    align-content: start
+  }
+  .end{
+    align-content: end;
+  }
+  .flex-start{
+    align-content: flex-start;
+  }
+  .flex-end{
+    align-content: flex-end;
+  }
+  .center{
+    align-content: center;
+  }
+  .left{
+    align-content: left;
+  }
+  .right{
+    align-content: right;
+  }
+  .baseline{
+    align-content: baseline;
+  }
+  .space-between{
+    align-content: space-between;
+  }
+  .space-around{
+    align-content: space-around;
+  }
+  .space-evenly{
+    align-content: space-evenly;
+  }
+  .stretch{
+    align-content: stretch;
+  }
+  .safe{
+    align-content: safe;
+  }
+  .unsafe{
+    align-content: unsafe;
+  }
+  </style>
+</head>
+<body>
+<h5>start</h5>
+<div class="container start">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</div>
+<hr>
+<h5>end</h5>
+<div class="container end">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</div>
+<hr>
+<h5>flex-start</h5>
+<div class="container flex-start">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</div>
+<hr>
+<h5>flex-end</h5>
+<div class="container flex-end">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</div>
+<hr>
+<h5>center</h5>
+<div class="container center">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</div>
+<hr>
+<h5>left</h5>
+<div class="container left">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</div>
+<hr>
+<h5>right</h5>
+<div class="container right">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</div>
+<hr>
+<h5>baseline</h5>
+<div class="container baseline">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</div>
+<hr>
+<h5>space-between</h5>
+<div class="container space-between">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</div>
+<hr>
+<h5>space-around</h5>
+<div class="container space-around">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</div>
+<hr>
+<h5>stretch</h5>
+<div class="container stretch">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</div>
+<hr>
+<h5>space-evenly</h5>
+<div class="container space-evenly">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</div>
+<hr>
+<h5>safe</h5>
+<div class="container safe">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</div>
+<hr>
+<h5>unsafe</h5>
+<div class="container unsafe">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</div>
+<hr>
+<textarea name="" id="" cols="280" rows="10">
+    /* Positional alignment */
+    align-content: center;     /* Pack items around the center */
+    align-content: start;      /* Pack items from the start */
+    align-content: end;        /* Pack items from the end */
+    align-content: flex-start; /* Pack flex items from the start */
+    align-content: flex-end;   /* Pack flex items from the end */
+    align-content: left;       /* Pack items from the left */
+    align-content: right;      /* Pack items from the right */
+    
+    /* Baseline alignment */
+    align-content: baseline;
+    align-content: first baseline;
+    align-content: last baseline;
+    
+    /* Distributed alignment */
+    align-content: space-between; /* Distribute items evenly
+                                     The first item is flush with the start,
+                                     the last is flush with the end */
+    align-content: space-around;  /* Distribute items evenly
+                                     Items have a half-size space
+                                     on either end */
+    align-content: space-evenly;  /* Distribute items evenly
+                                     Items have equal space around them */
+    align-content: stretch;       /* Distribute items evently
+                                     Stretch 'auto'-sized items to fit
+                                     the container */
+    
+    /* Overflow alignment */
+    align-content: safe center;
+    align-content: unsafe center;
+    
+     /* Global values */ 
+    align-content: inherit; 
+    align-content: initial; 
+    align-content: unset;
+
+</textarea>
+</body>
+</html>

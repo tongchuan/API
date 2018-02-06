@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>flex-warp</title>
+  <style lang="">
+    .content{
+      color: #fff;
+      font: 100 24px/100px sans-serif;
+      height: 150px;
+      text-align: center;
+      display: inline-flex;
+      border: 1px solid #900;
+      width: 300px;
+    }
+    .content div{
+      height: 50%;
+      width: 50%;
+    }
+    .content div:first-child{
+      background: red;
+    }
+    .content div:nth-child(2){
+      background-color: yellowgreen;
+    }
+    .content div:last-child{
+      background: steelblue;
+    }
+    .wrap{
+      flex-wrap: wrap;
+    }
+    .nowrap{
+      flex-wrap: nowrap;
+    }
+    .wrap-reverse{
+      flex-wrap: wrap-reverse;
+    }
+  </style>
+</head>
+<body>
+<h4>This is an example for flex-wrap:wrap</h4>
+<div class="content warp">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+</div>
+<h4>This is an example for flex-wrap:nowrap</h4>
+<div class="content nowrap">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+</div>
+<h4>This is an example for flex-wrap:wrap-reverse</h4>
+<div class="content wrap-reverse">
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+</div>
+
+
+<textarea name="" id="" cols="180" rows="10">
+    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
+    
+    /* Global values */
+    flex-wrap: inherit;
+    flex-wrap: initial;
+    flex-wrap: unset;
+
+
+    下面这些值是可以接受的:
+
+nowrap
+flex 的元素被摆放到到一行，这可能导致溢出 flex 容器。 cross-start  会根据 flex-direction 的值 相当于 start 或 before。
+wrap
+flex 元素 被打断到多个行中。cross-start 会根据 flex-direction 的值选择等于start 或before。cross-end 为确定的 cross-start 的另一端。
+wrap-reverse
+和 wrap 的行为一样，但是 cross-start 和 cross-end 互换。
+
+</textarea>
+</body>
+</html>

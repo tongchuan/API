@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>align-items</title>
+	<style type="text/css">
+		.container{
+			display: flex;
+			height: 200px;
+			width: 240px;
+			flex-wrap: wrap;
+			background-color: #8c8c8c;
+			
+		}
+		#container{
+			align-items: normal;
+		}
+		#container2{
+			align-content: normal;
+		}
+		.container div{
+			width: 50px;
+			height: 30px
+		}
+		.container div:first-child{
+			background-color: red;
+			width: 50px;
+		}
+		.container div:nth-child(2){
+			background-color: #8cffa0;
+			min-height: 30px;
+		}
+		.container div:nth-child(3){
+			background-color: #a0c8ff;
+			min-height: 50px;
+		}
+		.container div:nth-child(4){
+			background-color: #ffa08c;
+			min-height: 40px;
+		}
+		.container div:nth-child(5){
+			background-color: #ffff8c;
+			min-height: 60px;
+		}
+		.container div:nth-child(6){
+			background-color: #ff8cff;
+			min-height: 70px;
+		}
+		.container div:last-child{
+			background-color: #8cffff;
+			min-height: 50px;
+		}
+	</style>
+</head>
+<body>
+<div class="container" id="container">
+	<div>A</div>
+	<div>B</div>
+	<div>C</div>
+	<div>D</div>
+	<div>F</div>
+	<div>E</div>
+	<div>G</div>
+</div>
+<hr />
+<div  class="container" id="container2">
+	<div>A</div>
+	<div>B</div>
+	<div>C</div>
+	<div>D</div>
+	<div>F</div>
+	<div>E</div>
+	<div>G</div>
+</div>
+<div>
+	<select onchange="selectChange(this.value)">
+		<optgroup>
+			<option>normal</option>
+			<option>stretch</option>
+		</optgroup>	
+		<optgroup>
+			<option>center</option>
+			<option>start</option>
+			<option>end</option>
+			<option>flex-start</option>
+			<option>flex-end</option>
+			<option>self-start</option>
+			<option>self-end</option>
+			<option>left</option>
+			<option>right</option>
+			<option>space-between</option>
+		</optgroup>
+		<optgroup>
+		<option>first baseline</option>
+		<option>last baseline</option>
+		<option>safe center</option>
+		<option>unsafe center</option>
+		</optgroup>
+		<option>inherit</option>
+		<option>initial</option>
+		<option>unset</option>
+	</select>
+</div>
+<script type="text/javascript">
+	function selectChange(val){
+		document.getElementById('container').style.alignItems = val
+		document.getElementById('container2').style.alignContent = val
+	}
+</script>
+</body>
+</html>
