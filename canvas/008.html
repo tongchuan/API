@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		// void ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+		// x
+		// 圆弧中心（圆心）的 x 轴坐标。
+		// y
+		// 圆弧中心（圆心）的 y 轴坐标。
+		// radius
+		// 圆弧的半径。
+		// startAngle
+		// 圆弧的起始点， x轴方向开始计算，单位以弧度表示。
+		// endAngle
+		// 圆弧的终点， 单位以弧度表示。
+		// anticlockwise 可选
+		// 可选的Boolean值 ，如果为 true，逆时针绘制圆弧，反之，顺时针绘制。 
+		// 
+		// 
+		// void ctx.arcTo(x1, y1, x2, y2, radius);
+		// x1
+		// 第一个控制点的 x 轴坐标。
+		// y1
+		// 第一个控制点的 y 轴坐标。
+		// x2
+		// 第二个控制点的 x 轴坐标。
+		// y2
+		// 第二个控制点的 y 轴坐标。
+		// radius
+		// 圆弧的半径。
+		function draw(){
+			var canvas = document.getElementById('canvas')
+			if(canvas.getContext){
+				var ctx = canvas.getContext('2d')
+				for (var i = 0; i < 4; i++) {
+					for (var j = 0; j < 3; j++) {
+						ctx.beginPath()
+						var x = 25+j*50
+						var y = 25+i*50
+						var radius = 20
+						var startAngle = 0
+						var endAngle = Math.PI+(Math.PI*j)/2
+						var anticlockwise = i%2==0 ? false: true
+						ctx.arc(x,y,radius,startAngle,endAngle,anticlockwise)
+						if(i>1){
+							ctx.fill()
+						}else{
+							ctx.stroke()
+						}
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body onload="draw()">
+<canvas id="canvas" width="500" height="800"></canvas>
+</body>
+</html>

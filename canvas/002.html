@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		canvas{ border: 1px solid black; }
+	</style>
+	<script type="text/javascript">
+		function draw(){
+			var canvas = document.getElementById('tutorial')
+			if (canvas.getContext) {
+				var ctx = canvas.getContext('2d');
+			}
+		}
+	</script>
+</head>
+<body onload="draw()">
+<canvas id="tutorial"></canvas>
+</body>
+</html>

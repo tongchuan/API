@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>grid-template-rows</title>
+</head>
+<style type="text/css">
+.grid{
+  display: grid;
+  height: 200px;
+  border: 1px solid red;
+}
+.grid{
+  grid-template-rows: 30px 1fr;
+}
+.grid div:nth-child(1){
+  background-color: greenyellow
+}
+.grid div:nth-child(2){
+  background-color:dodgerblue
+}
+.grid div:nth-child(3){
+  background-color:dimgrey
+}
+.grid div:nth-child(4){
+  background-color:deeppink
+}
+
+.grid div:nth-child(5){
+  background-color: greenyellow
+}
+.grid div:nth-child(6){
+  background-color:dodgerblue
+}
+.grid div:nth-child(7){
+  background-color:dimgrey
+}
+.grid div:nth-child(8){
+  background-color:deeppink
+}
+.grid1{
+  grid-template-rows: fit-content(20%) repeat(2, 40px)
+}
+.grid2{
+  grid-template-rows: minmax(40px, max-content) repeat(auto-fill, 50px) repeat(2, 40px) 20% 40% 50%;
+}
+</style>
+<body>
+<div class="grid">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+    <div>D</div>
+</div>
+<div class="grid grid1">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+    <div>D</div>
+  </div>
+
+  <div class="grid grid2">
+      <div>A</div>
+      <div>B</div>
+      <div>C</div>
+      <div>D</div>
+      <div>A</div>
+      <div>B</div>
+      <div>C</div>
+      <div>D</div>
+    </div>
+</body>
+</html>

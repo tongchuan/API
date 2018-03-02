@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		// 绘制一个填充的矩形
+		// fillRect(x, y, width, height)
+
+		// 绘制一个矩形的边框
+		// strokeRect(x, y, width, height)
+
+		// 清除指定矩形区域，让清除部分完全透明。
+		// clearRect(x, y, width, height)
+
+		function draw(){
+			var canvas = document.getElementById('canvas')
+			if(canvas.getContext){
+				var ctx = canvas.getContext('2d')
+				ctx.fillRect(25,25,100,100)
+				ctx.clearRect(45,45,60,60)
+				ctx.strokeRect(50,50,50,50)
+			}
+		}
+	</script>
+</head>
+<body onload="draw()">
+<canvas id="canvas"></canvas>
+</body>
+</html>
