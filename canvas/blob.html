@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function init(){
+			let html = "<div>hello Worlc</div>"
+			let blob = new Blob([html],{type:'text/html'})
+			console.log(blob)
+			console.log(blob.slice(0,1))
+			let reader = new FileReader()
+			console.log(reader)
+			reader.addEventListener('loadend',()=>{
+				console.log(reader.result)
+				console.log(reader.result.Int8Array)
+			})
+			// reader.readAsArrayBuffer(blob);
+			// reader.readAsText(blob, 'utf-8');
+			reader.readAsBinaryString(blob)
+			// reader.abort() //取消
+			// reader.readAsArrayBuffer()
+			// reader.readAsBinaryString()
+			// reader.readAsDataURL()
+			// reader.readAsText()
+		}
+		init()
+	</script>
+</head>
+<body>
+
+</body>
+</html>

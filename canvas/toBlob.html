@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function init(){
+			var canvas = document.createElement('canvas');
+			var height = 200;
+			var width  = 200;
+
+			canvas.width  = width;
+			canvas.height = height;
+
+			var ctx = canvas.getContext('2d');
+
+			ctx.strokeStyle = '#090';
+			ctx.beginPath();
+			ctx.arc(width/2, height/2, width/2 - width/10, 0, Math.PI*2);
+			ctx.stroke();
+
+			canvas.toBlob(function (blob) {
+			  var reader = new FileReader();
+
+			  reader.onloadend = function () {
+			    console.log(reader.result);
+			  }
+
+			  reader.readAsBinaryString(blob);
+			  // reader.readAsDataURL(blob)
+			});
+		}
+		function init2(){
+			var canvas = document.createElement('canvas');
+			var height = 200;
+			var width  = 200;
+
+			canvas.width  = width;
+			canvas.height = height;
+
+			var ctx = canvas.getContext('2d');
+			var img = document.getElementById('img')
+			ctx.strokeStyle = '#090';
+			ctx.beginPath();
+			ctx.arc(width/2, height/2, width/2 - width/10, 0, Math.PI*2);
+			ctx.stroke();
+
+			canvas.toBlob(function (blob) {
+			  var reader = new FileReader();
+
+			  reader.onloadend = function () {
+			    console.log(reader.result);
+			    img.src=reader.result
+			  }
+
+			  reader.readAsDataURL(blob)
+			});
+		}
+		function baocun(){
+			var canvas = document.createElement('canvas');
+			var height = 200;
+			var width  = 200;
+
+			canvas.width  = width;
+			canvas.height = height;
+
+			var ctx = canvas.getContext('2d');
+			var img = document.getElementById('img')
+			ctx.strokeStyle = '#090';
+			ctx.beginPath();
+			ctx.arc(width/2, height/2, width/2 - width/10, 0, Math.PI*2);
+			ctx.stroke();
+
+			var image = new Image();
+			image.src = canvas.toDataURL("image/png");
+			return image;
+		}
+
+	</script>
+</head>
+<body onload="init2()">
+<canvas id="canvas"></canvas>
+<img src="" id="img">
+<button onclick="baocun()">保存</button>
+</body>
+</html>

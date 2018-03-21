@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>缩放</title>
+	<script type="text/javascript">
+	function init(){
+		let canvas = document.getElementById('canvas')
+		let ctx = canvas.getContext('2d')
+		ctx.save()
+		ctx.translate(60,60)
+		ctx.scale(2,2)
+		ctx.arc(0,0,30,0,2*Math.PI,true)
+		ctx.fill()
+		ctx.restore()
+	}
+	</script>
+</head>
+<body onload="init()">
+<canvas id="canvas" width="500" height="500"></canvas>
+</body>
+</html>

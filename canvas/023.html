@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>渐变 Gradients</title>
+	<script type="text/javascript">
+/*
+createPattern(image, type)
+该方法接受两个参数。Image 可以是一个 Image 对象的引用，或者另一个 canvas 对象。Type 必须是下面的字符串值之一：repeat，repeat-x，repeat-y 和 no-repeat。
+
+*/
+function draw(){
+	var ctx = document.getElementById('canvas').getContext('2d')
+	var img = new Image();
+	img.src = 'img.jpg'
+	img.onload = function(){
+		var ptrn = ctx.createPattern(img,'repeat')
+		ctx.fillStyle = ptrn
+		ctx.fillRect(0,0,300,150)
+	}
+}
+
+	
+	</script>
+
+</head>
+<body onload="draw()">
+<canvas id="canvas"></canvas>
+</body>
+</html>

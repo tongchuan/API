@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		let config = {
+			isDraw: false
+		}
+		function init() {
+			let canvas = document.getElementById('canvas')
+			let ctx = canvas.getContext('2d')
+			initCanvas(canvas, ctx)
+
+			let clearCanvas = document.getElementById('clearCanvas')
+			clearCanvas.addEventListener('click',clearCanvasFun.bind(this,canvas,ctx), false)
+
+			canvas.addEventListener('mousedown', mousedownFun.bind(this,canvas,ctx), false)
+			canvas.addEventListener('mouseup', mouseupFun.bind(this,canvas,ctx), false)
+			canvas.addEventListener('mousemove', mousemoveFun.bind(this,canvas,ctx), false)
+		}
+		function mousedownFun(canvas, ctx, event, isDraw) {
+			let {clientX,clientY,offsetX,offsetY,pageX,pageY,screenX,screenY,x,y} = event
+			let color = document.getElementById('color')
+			let lineWidth = document.getElementById('lineWidth')
+			ctx.strokeStyle = color.value
+			ctx.lineWidth = lineWidth.value
+
+			ctx.shadowOffsetX = 5
+			ctx.shadowOffsetY = 2
+			ctx.shadowBlur = 10
+			ctx.shadowColor = '#000000'
+			ctx.beginPath()
+			ctx.moveTo(offsetX,offsetY)
+			config.isDraw = true
+		}
+		function mouseupFun(canvas, ctx, event){
+			config.isDraw = false
+		}
+		function mousemoveFun(canvas, ctx, event) {
+			if(config.isDraw){
+				let {clientX,clientY,offsetX,offsetY,pageX,pageY,screenX,screenY,x,y} = event
+				ctx.lineTo(offsetX,offsetY);
+				ctx.stroke()
+				ctx.beginPath()
+				ctx.moveTo(offsetX,offsetY)
+				// console.log(clientX,clientY,offsetX,offsetY,pageX,pageY,screenX,screenY,x,y)
+			}
+			
+			// ctx.beginPath()
+		}
+
+		function clearCanvasFun(canvas, ctx, event) {
+			let [x, y, width, height] = [0, 0, canvas.width, canvas.height]
+			ctx.clearRect(x, y, width, height)
+		}
+
+		function initCanvas(canvas, ctx){
+			console.log(document.body)
+			let width = document.body.clientWidth
+			let height = document.body.clientHeight
+			// canvas.width = width
+			// canvas.height = height
+			// ctx.canvas.width
+			ctx.canvas.width = width
+			ctx.canvas.height = height
+			// console.log(ctx.canvas.width)
+			// console.log(document.body.clientWidth)
+			// document.getElementById('canvas')
+		}
+		document.addEventListener('resize', init,false)
+	</script>
+	<style type="text/css">
+		html, body, canvas{
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			border: 0
+		}
+		canvas{
+			/*border: 1px solid red;*/
+		}
+		.setting{
+			position: absolute;
+			left: 0;
+			top: 0
+		}
+	</style>
+</head>
+<body onload="init()">
+<div class="setting">
+	<label>颜色:</label>
+	<select id="color">
+		<option value="Aqua">Aqua</option>
+		<option value="Black">Black</option>
+		<option value="Blue">Blue</option>
+		<option value="Crimson">Crimson</option>
+		<option value="DarkRed">DarkRed</option>
+	</select>
+	<label>线粗</label>
+	<select id="lineWidth">
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+		<option>6</option>
+		<option>7</option>
+		<option>8</option>
+		<option>9</option>
+		<option>10</option>
+	</select>
+	<button id="clearCanvas">清除</button>
+</div>
+<canvas id="canvas"></canvas>
+</body>
+</html>

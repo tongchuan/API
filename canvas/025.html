@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>渐变 Gradients</title>
+	<script type="text/javascript">
+/*
+canvas 提供了两种方法来渲染文本:
+
+fillText(text, x, y [, maxWidth])
+在指定的(x,y)位置填充指定的文本，绘制的最大宽度是可选的.
+strokeText(text, x, y [, maxWidth])
+在指定的(x,y)位置绘制文本边框，绘制的最大宽度是可选的.
+
+
+有样式的文本
+在上面的例子用我们已经使用了 font 来使文本比默认尺寸大一些. 还有更多的属性可以让你改变canvas显示文本的方式：
+
+font = value
+当前我们用来绘制文本的样式. 这个字符串使用和 CSS font 属性相同的语法. 默认的字体是 10px sans-serif。
+textAlign = value
+文本对齐选项. 可选的值包括：start, end, left, right or center. 默认值是 start。
+textBaseline = value
+基线对齐选项. 可选的值包括：top, hanging, middle, alphabetic, ideographic, bottom。默认值是 alphabetic。
+direction = value
+文本方向。可能的值包括：ltr, rtl, inherit。默认值是 inherit。
+如果你之前使用过CSS，那么这些选项你会很熟悉。
+
+预测量文本宽度
+当你需要获得更多的文本细节时，下面的方法可以给你测量文本的方法。
+
+measureText()
+将返回一个 TextMetrics对象的宽度、所在像素，这些体现文本特性的属性。
+下面的代码段将展示如何测量文本来获得它的宽度：
+*/
+function draw(){
+	/*
+	// 	drawImage(image, x, y)
+	// 其中 image 是 image 或者 canvas 对象，x 和 y 是其在目标 canvas 里的起始坐标。
+
+	var ctx = document.getElementById('canvas').getContext('2d')
+	var img = new Image()
+	img.onload = function(){
+		ctx.drawImage(img, 0, 0)
+		ctx.lineWidth = 10
+		ctx.beginPath()
+		ctx.moveTo(30,96)
+		ctx.lineTo(70,66);
+    ctx.lineTo(103,76);
+    ctx.lineTo(170,15);
+    ctx.stroke()
+	}
+	// img.src = 'img.jpg';
+	img.src = 'data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==';
+	*/
+
+	/*
+	// drawImage(image, x, y, width, height)
+	// 这个方法多了2个参数：width 和 height，这两个参数用来控制 当向canvas画入时应该缩放的大小
+	var ctx = document.getElementById('canvas').getContext('2d');
+	  var img = new Image();
+	  img.onload = function(){
+	    for (var i=0;i<4;i++){
+	      for (var j=0;j<3;j++){
+	        ctx.drawImage(img,j*50,i*38,50,38);
+	      }
+	    }
+	  };
+	  img.src = 'https://mdn.mozillademos.org/files/5397/rhino.jpg';
+	}
+	*/
+
+	/*
+	// drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+	// 第一个参数和其它的是相同的，都是一个图像或者另一个 canvas 的引用。其它8个参数最好是参照右边的图解，前4个是定义图像源的切片位置和大小，后4个则是定义切片的目标显示位置和大小。
+	var ctx = document.getElementById('canvas').getContext('2d');
+	var img = new Image();
+	img.onload = function(){
+		ctx.drawImage(img, 33,71,104,124,21,20,87,104);
+	}
+  // ctx.drawImage(document.getElementById('frame'),0,0);
+	img.src = 'https://mdn.mozillademos.org/files/5397/rhino.jpg';
+	*/
+	/*
+	// Loop through all images
+	  for (i=0;i<document.images.length;i++){
+
+	    // Don't add a canvas for the frame image
+	    if (document.images[i].getAttribute('id')!='frame'){
+
+	      // Create canvas element
+	      canvas = document.createElement('CANVAS');
+	      canvas.setAttribute('width',132);
+	      canvas.setAttribute('height',150);
+
+	      // Insert before the image
+	      document.images[i].parentNode.insertBefore(canvas,document.images[i]);
+
+	      ctx = canvas.getContext('2d');
+
+	      // Draw image to canvas
+	      ctx.drawImage(document.images[i],15,20);
+
+	      // Add frame
+	      ctx.drawImage(document.getElementById('frame'),0,0);
+	    }
+	  }
+
+	*/
+
+
+
+}
+	</script>
+
+</head>
+<body onload="draw()">
+<canvas id="canvas"></canvas>
+</body>
+</html>

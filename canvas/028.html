@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>旋转 Rotating</title>
+	<script type="text/javascript">
+// rotate(angle)
+// 这个方法只接受一个参数：旋转的角度(angle)，它是顺时针方向的，以弧度为单位的值。
+// 旋转的中心点始终是 canvas 的原点，如果要改变它，我们需要用到 translate 方法。
+function draw(){
+	var ctx = document.getElementById('canvas').getContext('2d')
+	ctx.translate(75, 75)
+	for (var i = 0; i < 6; i++) {
+		ctx.save();
+		ctx.fillStyle = 'rgb('+(51*i)+','+(255-51*i)+',255)';
+		for (var j = 0; j < i*6; j++) {
+			ctx.rotate(Math.PI*2/(i*6))
+			ctx.beginPath();
+			ctx.arc(0,i*12.5,5,0,Math.PI*2,true)
+			ctx.fill()
+		}
+		ctx.restore()
+	}
+}
+
+	</script>
+
+</head>
+<body onload="draw()">
+<canvas id="canvas" style="border:1px solid #099" width="800" height="800"></canvas>
+</body>
+</html>

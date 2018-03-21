@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>像素操作</title>
+</head>
+<body>
+<canvas id="canvas" role="button" aria-pressed="false" aria-label="Start game" style="border:1px solid #099" width="300" height="300"></canvas>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+// canvas.hitregions.enabled = true
+console.log(Object.getOwnPropertyNames(ctx.__proto__))
+// ["canvas", "globalAlpha", "globalCompositeOperation", "filter", "imageSmoothingEnabled", "imageSmoothingQuality", "strokeStyle", "fillStyle", "shadowOffsetX", "shadowOffsetY", "shadowBlur", "shadowColor", "lineWidth", "lineCap", "lineJoin", "miterLimit", "lineDashOffset", "font", "textAlign", "textBaseline", "save", "restore", "scale", "rotate", "translate", "transform", "setTransform", "resetTransform", "createLinearGradient", "createRadialGradient", "createPattern", "clearRect", "fillRect", "strokeRect", "beginPath", "fill", "stroke", "drawFocusIfNeeded", "clip", "isPointInPath", "isPointInStroke", "fillText", "strokeText", "measureText", "drawImage", "getImageData", "putImageData", "createImageData", "setLineDash", "getLineDash", "closePath", "moveTo", "lineTo", "quadraticCurveTo", "bezierCurveTo", "arcTo", "rect", "arc", "ellipse", "constructor"]
+console.log(Object.getOwnPropertySymbols(ctx.__proto__))
+ctx.beginPath();
+ctx.arc(70, 80, 10, 0, 2 * Math.PI, false);
+ctx.fill();
+ctx.addHitRegion({id: "circle"});
+
+canvas.addEventListener("mousemove", function(event){
+  if(event.region) {
+    alert("hit region: " + event.region);
+  }
+});
+
+</script>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function init(){
+			let canvas = document.getElementById('canvas')
+			let ctx = canvas.getContext('2d')
+			console.log(canvas) // <canvas id="canvas"></canvas>
+			console.log(ctx.canvas) // <canvas id="canvas"></canvas>
+			console.log(ctx.canvas === canvas) // true
+			console.log(Object.getOwnPropertyNames(canvas.__proto__)) // ["width", "height", "toDataURL", "toBlob", "getContext", "captureStream", "constructor"]
+		}
+	</script>
+</head>
+<body onload="init()">
+<canvas id="canvas"></canvas>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>椭圆</title>
+	<script type="text/javascript">
+	function init() {
+		let canvas = document.getElementById('canvas')
+		let ctx = canvas.getContext('2d')
+		ctx.save()
+		ctx.translate(100,200)
+		for (var i = 0; i < 360; i++) {
+			ctx.rotate(2 * Math.PI / 3)
+			// ctx.save()
+			// ctx.translate(100,200)
+			
+			ctx.ellipse(0,0,30,50,0,0,2*Math.PI,true)
+			ctx.stroke()
+			// ctx.restore()
+		}
+		ctx.restore()
+		// ctx.save()
+		// ctx.translate(100,200)
+		// ctx.ellipse(0,0,30,50,30*Math.PI/180,0,2*Math.PI,true)
+		// ctx.stroke()
+		// ctx.restore()
+
+		// ctx.save()
+		// ctx.translate(200,200)
+		// ctx.ellipse(30,30,30,100,0,2*Math.PI,false)
+		// ctx.fill()
+		// ctx.restore()
+
+	}
+	</script>
+</head>
+<body onload="init()">
+<canvas id="canvas" width="500" height="500"></canvas>
+
+
+<textarea rows="10" cols="300">
+	CanvasRenderingContext2D.ellipse() 是 Canvas 2D API 添加椭圆路径的方法。椭圆的圆心在（x,y）位置，半径分别是radiusX 和 radiusY ，按照anticlockwise（默认顺时针）指定的方向，从 startAngle  开始绘制，到 endAngle 结束。
+
+	语法
+void ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle, anticlockwise);
+
+参数
+x
+椭圆圆心的 x 轴坐标。
+y
+椭圆圆心的 y 轴坐标。
+radiusX
+椭圆长轴的半径。
+radiusY
+椭圆短轴的半径。
+rotation
+椭圆的旋转角度，以弧度表示(非角度度数)。
+startAngle
+将要绘制的起始点角度，从 x 轴测量，以弧度表示(非角度度数)。
+endAngle
+椭圆将要绘制的结束点角度，以弧度表示(非角度度数)。
+anticlockwise 可选
+Boolean 选项，如果为 true，逆时针方向绘制椭圆 （逆时针）， 反之顺时针方向绘制。
+</textarea>
+</body>
+</html>

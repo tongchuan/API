@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>lineJoin 属性的例子</title>
+	<script type="text/javascript">
+		// lineJoin 属性的例子
+		// lineJoin 的属性值决定了图形中两线段连接处所显示的样子。它可以是这三种之一：round, bevel 和 miter。默认是 miter
+		function draw(){
+			var ctx = document.getElementById('canvas').getContext('2d')
+			var lineJoin = ['round', 'bevel', 'miter']
+			ctx.lineWidth = 10;
+			for (var i = 0; i < lineJoin.length; i++) {
+				ctx.lineJoin = lineJoin[i]
+				ctx.beginPath()
+				ctx.moveTo(-5,5+i*40);
+		    ctx.lineTo(35,45+i*40);
+		    ctx.lineTo(75,5+i*40);
+		    ctx.lineTo(115,45+i*40);
+		    ctx.lineTo(155,5+i*40);
+		    ctx.stroke();
+			}
+		}
+
+	</script>
+</head>
+<body onload="draw()">
+<canvas id="canvas"></canvas>
+</body>
+</html>

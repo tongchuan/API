@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>变形 Transforms</title>
+	<script type="text/javascript">
+// 最后一个方法允许对变形矩阵直接修改。
+// transform(m11, m12, m21, m22, dx, dy)
+// 这个方法是将当前的变形矩阵乘上一个基于自身参数的矩阵，在这里我们用下面的矩阵：
+// m11 m21 dx
+// m12 m22 dy
+// 0 	0 	1
+// 这个函数的参数各自代表如下：
+// m11：水平方向的缩放
+// m12：水平方向的倾斜偏移
+// m21：竖直方向的倾斜偏移
+// m22：竖直方向的缩放
+// dx：水平方向的移动
+// dy：竖直方向的移动
+// 
+// setTransform(m11, m12, m21, m22, dx, dy)
+// 这个方法会将当前的变形矩阵重置为单位矩阵，然后用相同的参数调用 transform 方法。如果任意一个参数是无限大，那么变形矩阵也必须被标记为无限大，否则会抛出异常。从根本上来说，该方法是取消了当前变形,然后设置为指定的变形,一步完成。
+// 
+// resetTransform()
+// 重置当前变形为单位矩阵，它和调用以下语句是一样的：
+
+
+
+function draw(){
+	var ctx = document.getElementById('canvas').getContext('2d')
+	var sin = Math.sin(Math.PI/6);
+	var cos = Math.cos(Math.PI/6);
+	ctx.translate(100, 100);
+	var c = 0;
+	for (var i=0; i <= 12; i++) {
+    c = Math.floor(255 / 12 * i);
+    ctx.fillStyle = "rgb(" + c + "," + c + "," + c + ")";
+    ctx.fillRect(0, 0, 100, 10);
+    ctx.transform(cos, sin, -sin, cos, 0, 0);
+  }
+  ctx.setTransform(-1, 0, 0, 1, 100, 100);
+  ctx.fillStyle = "rgba(255, 128, 255, 0.5)";
+  ctx.fillRect(0, 50, 100, 100);
+}
+
+function drawSpirograph(ctx, R, r, O){
+	var x1 = R - O
+	var y1 = 0
+	var i = 1
+	ctx.beginPath()
+	ctx.moveTo(x1,y1)
+	do{
+		if(i>20000) break;
+		var x2 = (R+r)*Math.cos(i*Math.PI/72) - (r+O)*Math.cos(((R+r)/r)*(i*Math.PI/72))
+		var y2 = (R+r)*Math.sin(i*Math.PI/72) - (r+O)*Math.sin(((R+r)/r)*(i*Math.PI/72))
+		ctx.lineTo(x2,y2);
+		console.log(x2,y2)
+		x1 = x2;
+		y1 = y2;
+    i++;
+	}while(x2!=R-O && y2 != 0)
+	ctx.stroke()
+}
+	</script>
+
+</head>
+<body onload="draw()">
+<canvas id="canvas" style="border:1px solid #099" width="300" height="300"></canvas>
+</body>
+</html>
