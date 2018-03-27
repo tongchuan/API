@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>imageSmoothingEnabled</title>
+  <script>
+    function init(){
+      let canvas = document.getElementById('canvas')
+      let ctx = canvas.getContext('2d');
+      let img = new Image()
+      // let image = document.getElementById('images')
+      // ctx.mozImageSmoothingEnabled = false;
+      //   ctx.webkitImageSmoothingEnabled = false;
+      //   ctx.msImageSmoothingEnabled = false;
+      //   ctx.imageSmoothingEnabled = false;
+      //   ctx.drawImage(image, 0, 400, 200);
+      //   
+      //   
+      // img.crossOrigin = "Anonymous";
+      // img.onload = function(){
+      //   ctx.mozImageSmoothingEnabled = false;
+      //   ctx.webkitImageSmoothingEnabled = false;
+      //   ctx.msImageSmoothingEnabled = false;
+      //   ctx.imageSmoothingEnabled = false;
+      //   ctx.drawImage(img, 0, 400, 200);
+      //   // localStorage.setItem( "savedImageData", canvas.toDataURL("image/jpeg") )
+      // }
+      // img.src ='image.jpg'
+      // ctx.filter = 'blur(5px)'
+      // ctx.font = '48px serif';
+      // ctx.strokeText('Helllo world', 50, 100)
+      
+      img.onload = function(){
+        // ctx.mozImageSmoothingEnabled = false;
+        // ctx.webkitImageSmoothingEnabled = false;
+        // ctx.msImageSmoothingEnabled = false;
+        // ctx.imageSmoothingEnabled = false;
+        // // 
+        ctx.mozImageSmoothingEnabled = true;
+        ctx.webkitImageSmoothingEnabled = true;
+        ctx.msImageSmoothingEnabled = true;
+        ctx.imageSmoothingEnabled = true;
+
+        ctx.drawImage(img, 0, 0);
+      }
+      img.src ='./img.jpg'
+      
+    }
+    //ctx.filter = 'blur(5px)'
+  </script>
+</head>
+<body onload="init()">
+  <canvas id="canvas" width="400" height="200" class="playable-canvas"></canvas>
+  <img src="./image.jpg" crossOrigin = "Anonymous" style="display:none" id="images" alt="">
+</body>
+</html>

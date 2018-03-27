@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>filter</title>
+  <script>
+    function init(){
+      // let canvas = document.getElementById('canvas')
+      // let ctx = canvas.getContext('2d');
+      // ctx.filter = 'blur(5px)'
+      // ctx.font = '48px serif';
+      // ctx.strokeText('Helllo world', 50, 100)
+      
+      let canvas = document.getElementById('canvas')
+      let ctx = canvas.getContext('2d');
+      
+      let reset = document.getElementById("reset");
+      let edit = document.getElementById("edit");
+     
+      reset.addEventListener("click", function() {
+        let textarea = document.getElementById("code");
+        let code = textarea.value;
+        textarea.value = code;
+        drawCanvas();
+      });
+      edit.addEventListener("click", function() {
+        textarea.focus();
+      })
+      function drawCanvas(){
+        let textarea = document.getElementById("code");
+        let code = textarea.value;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        eval(code)
+      }
+      
+    }
+    //ctx.filter = 'blur(5px)'
+  </script>
+</head>
+<body onload="init()">
+  <canvas id="canvas" width="400" height="200" class="playable-canvas"></canvas>
+  <div class="playable-buttons">
+      <input id="edit" type="button" value="Edit" />
+      <input id="reset" type="button" value="Reset" />
+  </div>
+  <textarea id="code" rows="500" cols="500" class="playable-code">
+      
+      ctx.filter = 'brightness(50)'
+      ctx.font = '48px serif';
+      ctx.strokeText('Helllo world', 50, 100)
+  </textarea>
+</body>
+</html>

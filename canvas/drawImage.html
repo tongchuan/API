@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>drawImage</title>
+</head>
+<body onload="init()">
+<img src="./img.jpg" alt="tulip" id="tulip" style="margin-left:0px; display: none" /><br />
+<canvas id="canvas" width="500" height="500"></canvas>
+
+<script type="text/javascript">
+	function init(){
+		// let canvas = document.getElementById('canvas');
+		// let ctx = canvas.getContext('2d');
+		// let img=document.getElementById("tulip");
+	 //  ctx.drawImage(img,0,0,500,500,0,0,500,500);
+	 	
+
+	 	let canvas = document.getElementById('canvas')
+	 	let ctx = canvas.getContext('2d')
+	 	let img = new Image();
+	 	img.onload = function(){
+	 		ctx.drawImage(img, 0, 0, 300,300)
+	 	}
+	 	img.src = './img.jpg'
+	}
+	
+</script>
+</body>
+</html>

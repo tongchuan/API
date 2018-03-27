@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>globalCompositeOperation</title>
+  <script>
+    function init() {
+      let canvas = document.getElementById('canvas');
+      let ctx = canvas.getContext('2d');
+      let width = document.body.clientWidth;
+      let height = document.body.clientHeight;
+      ctx.canvas.width = width;
+      ctx.canvas.height = height;
+      // source-over	默认。在目标图像上显示源图像。
+      // source-atop	在目标图像顶部显示源图像。源图像位于目标图像之外的部分是不可见的。
+      // source-in	在目标图像中显示源图像。只有目标图像内的源图像部分会显示，目标图像是透明的。
+      // source-out	在目标图像之外显示源图像。只会显示目标图像之外源图像部分，目标图像是透明的。
+      // destination-over	在源图像上方显示目标图像。
+      // destination-atop	在源图像顶部显示目标图像。源图像之外的目标图像部分不会被显示。
+      // destination-in	在源图像中显示目标图像。只有源图像内的目标图像部分会被显示，源图像是透明的。
+      // destination-out	在源图像外显示目标图像。只有源图像外的目标图像部分会被显示，源图像是透明的。
+      // lighter	显示源图像 + 目标图像。
+      // copy	显示源图像。忽略目标图像。
+      // xor	使用异或操作对源图像与目标图像进行组合。
+      let globalCompositeOperation = [
+        'source-over',
+        'source-atop',
+        'source-in',
+        'source-out',
+        'destination-over',
+        'destination-atop',
+        'destination-in',
+        'destination-out',
+        'lighter',
+        'copy',
+        'xor'
+      ]
+      // let num = 0
+      // for (let j = 0; j < 4; j++) {
+      //   for (let i = 0; i < 5; i++) {
+      //     draw(ctx, i*150, j*100, globalCompositeOperation[num++])
+      //   }
+      // }
+      draw(ctx, 0,0, globalCompositeOperation[0])
+      draw(ctx, 300,0, globalCompositeOperation[1])
+      // draw(ctx, 600,0, globalCompositeOperation[2])
+      // draw(ctx, 100,500, globalCompositeOperation[3])
+      // draw(ctx, 100,600, globalCompositeOperation[4])
+      // draw(ctx, 200,100, globalCompositeOperation[5])
+      // draw(ctx, 200,200, globalCompositeOperation[6])
+      // draw(ctx, 200,300, globalCompositeOperation[7])
+      // draw(ctx, 200,400, globalCompositeOperation[8])
+      // draw(ctx, 200,500, globalCompositeOperation[9])
+      // draw(ctx, 200,600, globalCompositeOperation[10])
+    }
+    function draw(ctx, x, y, globalCompositeOperation){
+      ctx.save()
+      ctx.translate(x, y)
+      ctx.fillStyle = 'red'
+      ctx.fillRect(0,0,75,75)
+      ctx.globalCompositeOperation = globalCompositeOperation
+      ctx.fillStyle = 'blue'
+      ctx.fillRect(30,30,75,75)
+      ctx.restore()
+    }
+  </script>
+  <style>
+  html, body, canvas{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  </style>
+</head>
+<body onload="init()">
+  <canvas id="canvas"></canvas>
+</body>
+</html>
